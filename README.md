@@ -8,19 +8,24 @@
 #2，使用流程：
 
 2-1，	应用注册：
+
 a),登录地址：https://apps.dev.microsoft.com/#/appList
+
 b),添加应用：client_secret / client_id / redirect_uri / 权限 /  勾选Live SDK 支持 
 
 2-2，	Azure AD 认证：
 
 a),地址回调获取code，如下：
+
 点击下面地址: 
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=code&client_id=65241a86-9b8d-4856-8164-303455298a12&redirect_uri=http://localhost:8099/项目名/请求地址&scope=https://graph.microsoft.com/Files.ReadWrite
 登陆后回调到自己的应用地址获取code
 http://localhost:8099/airschool/OneDrive
 
 b),请求https://login.microsoftonline.com/common/oauth2/v2.0/token地址获取token，这里必须带参数且采用https访问方式。
+
 例如：请求代码
+
 				String params = 															"client_id=65241a86-9b8d-4856-8164-303455298a12
 				&redirect_uri=http://localhost:8099/项目名/请求地址&grant_type="+ PDConstant.GRANTTYPE + "&code=" + code + 								"&scope=https://graph.microsoft.com/Files.ReadWrite" + "&client_secret=OUMf8T5B0fSoJ4nikqbuTCS";
 				String url = "https://login.microsoftonline.com/common/oauth2/v2.0/token";
@@ -45,6 +50,7 @@ b),请求https://login.microsoftonline.com/common/oauth2/v2.0/token地址获取t
 				}
 				
 2-3，	API Restful 调用：通过令牌用https带GET/POST/PUT/DELETE等请求方式调用API操作数据。
+
 			String iToken = "Bearer "+token ;
 			BufferedReader bufferedReader1 = null;
 			String url1 =  															"https://graph.microsoft.com/v1.0/me/drive/root/search(q='{名称}')";;
