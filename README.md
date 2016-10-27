@@ -65,4 +65,6 @@ b),请求https://login.microsoftonline.com/common/oauth2/v2.0/token地址获取t
 			"application/x-www-form-urlencoded; charset=UTF-8");
 				httpsConn1.addRequestProperty("Authorization", iToken);
         
-#参考地址：Microsoft Graph官网地址：https://graph.microsoft.io/zh-cn 。
+#参考地址：
+
+Microsoft Graph官网地址：https://graph.microsoft.io/zh-cn 。
