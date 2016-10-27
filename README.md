@@ -18,16 +18,16 @@ b),添加应用：client_secret / client_id / redirect_uri / 权限 /  勾选Liv
 a),地址回调获取code，如下：
 
 点击下面地址: 
-https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=code&client_id=65241a86-9b8d-4856-8164-303455298a12&redirect_uri=http://localhost:8099/项目名/请求地址&scope=https://graph.microsoft.com/Files.ReadWrite
+https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=code&client_id=你的clientid&redirect_uri=http://localhost:8099/项目名/请求地址&scope=https://graph.microsoft.com/Files.ReadWrite
 登陆后回调到自己的应用地址获取code
-http://localhost:8099/airschool/OneDrive
+http://localhost:8099/项目名/请求地址
 
 b),请求https://login.microsoftonline.com/common/oauth2/v2.0/token地址获取token，这里必须带参数且采用https访问方式。
 
 例如：请求代码
 
-				String params = 															"client_id=65241a86-9b8d-4856-8164-303455298a12
-				&redirect_uri=http://localhost:8099/项目名/请求地址&grant_type="+ PDConstant.GRANTTYPE + "&code=" + code + 								"&scope=https://graph.microsoft.com/Files.ReadWrite" + "&client_secret=OUMf8T5B0fSoJ4nikqbuTCS";
+				String params = 															"client_id=你的clientid
+				&redirect_uri=http://localhost:8099/项目名/请求地址&grant_type="+ PDConstant.GRANTTYPE + "&code=" + code + 								"&scope=https://graph.microsoft.com/Files.ReadWrite" + "&client_secret=你的client_secret";
 				String url = "https://login.microsoftonline.com/common/oauth2/v2.0/token";
 				URL myURL = new URL(url);
 				HttpsURLConnection httpsConn = (HttpsURLConnection) myURL
