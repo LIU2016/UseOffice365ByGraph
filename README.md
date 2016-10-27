@@ -5,7 +5,7 @@
    Microsoft Graph：调用Microsoft API 的最简单方式 。Microsoft Graph（旧称“Office 365 统一 API”）通过一个 REST API 终结点从 Microsoft 云服务公开了多个 API。
 您可以使用 API 访问固定实体，如用户、组、邮件、消息、日历、任务和注释（来自 Outlook、OneDrive、Azure Active Directory、Planner、OneNote 及其他服务）。您还可以获得由 Office Graph 强力驱动的计算关系（仅针对商业用户），如您要合作的用户列表或您常用的文档列表。Microsoft Graph 公开了两个终结点。公开发布的终结点 /v1.0 和预览终结点 /beta。你可以在你的生产应用程序中使用 /v1.0 但不能使用 /beta。我们通过预览终结点 /beta 提供最新功能以便开发人员进行试验并提供反馈，beta 版中的 API 可能会随时更改而且尚未准备好用于生产用途。
 
-#2，使用流程：
+#2，java web程序使用流程：
 
 2-1，	应用注册：
 
@@ -19,8 +19,11 @@ a),地址回调获取code，如下：
 
 点击下面地址: 
 https://login.microsoftonline.com/common/oauth2/v2.0/authorize?response_type=code&client_id=你的clientid&redirect_uri=http://localhost:8099/项目名/请求地址&scope=https://graph.microsoft.com/Files.ReadWrite
-登陆后回调到自己的应用地址获取code
-http://localhost:8099/项目名/请求地址
+
+然后输入账号/密码登陆，
+
+然后会回调到自己的应用地址（http://localhost:8099/项目名/请求地址）获取code。
+
 
 b),请求https://login.microsoftonline.com/common/oauth2/v2.0/token地址获取token，这里必须带参数且采用https访问方式。
 
